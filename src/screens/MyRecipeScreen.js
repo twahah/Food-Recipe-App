@@ -34,6 +34,8 @@ import {
         };
       };
       fetchrecipes();
+      const intervalId = setInterval(fetchrecipes, 5000);
+      return () => clearInterval(intervalId);
     }, []);
   
     const handleAddrecipe = () => {
