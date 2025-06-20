@@ -302,7 +302,7 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   ingredientBullet: {
-    backgroundColor: "#FFD700",
+    backgroundColor: "#D7520AFF",
     borderRadius: 50,
     height: hp(1.5),
     width: hp(1.5),
@@ -335,6 +335,6 @@ const styles = StyleSheet.create({
   notFoundText: {
     fontSize: hp(3),
     fontWeight: "bold",
-    color: "#D9534F",
+    color: "#D7520AFF",
   },
 });

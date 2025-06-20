@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#FBBF24", // amber-500
+    backgroundColor: "#D7520AFF", // amber-500
   },
   ring: {
     backgroundColor: "rgba(255, 255, 255, 0.2)", // white/20

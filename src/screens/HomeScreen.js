@@ -795,6 +795,6 @@ const styles = StyleSheet.create({
     color: "#52525B", // neutral-600
   },
   highlight: {
-    color: "#F59E0B", // amber-400
+    color: "#D7520AFF", // amber-400
   },
 });

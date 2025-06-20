@@ -7,12 +7,15 @@ export default function RecipesFormScreen({ route, navigation }) {
   const { recipeToEdit, recipeIndex, onrecipeEdited } = route.params || {};
   const [title, setTitle] = useState(recipeToEdit ? recipeToEdit.title : "");
   const [image, setImage] = useState(recipeToEdit ? recipeToEdit.image : "");
+  const [ingredients, setIngredients] = useState(
+    recipeToEdit ? recipeToEdit.ingredients : ""
+  );
   const [description, setDescription] = useState(
     recipeToEdit ? recipeToEdit.description : ""
   );
 
   const saverecipe = async () => {
-    const newrecipe = { title, image, description };
+    const newrecipe = { title, image, description, ingredients };
     try {
       const existingRecipes = await AsyncStorage.getItem("customRecipes");
       const recipes = existingRecipes ? JSON.parse(existingRecipes) : [];
@@ -42,13 +45,13 @@ export default function RecipesFormScreen({ route, navigation }) {
         {recipeToEdit ? "Edit Recipe" : "Add New Recipe"}
       </Text>
       <TextInput
-        placeholder="Title"
+        placeholder="Recipe name"
         value={title}
         onChangeText={setTitle}
         style={styles.input}
       />
       <TextInput
-        placeholder="Image URL"
+        placeholder="Image Upload"
         value={image}
         onChangeText={setImage}
         style={styles.input}
@@ -59,7 +62,15 @@ export default function RecipesFormScreen({ route, navigation }) {
         <Text style={styles.imagePlaceholder}>Upload Image URL</Text>
       )}
       <TextInput
-        placeholder="Description"
+        placeholder="Ingredients list"
+        value={ingredients}
+        onChangeText={setIngredients}
+        multiline={true}
+        numberOfLines={4}
+        style={[styles.input, { height: hp(15), textAlignVertical: "top" }]}
+      />
+      <TextInput
+        placeholder="Step-by-step instructions"
         value={description}
         onChangeText={setDescription}
         multiline={true}
@@ -86,22 +97,26 @@ const styles = StyleSheet.create({
     marginVertical: hp(1),
   },
   image: {
-    width: 300,
-    height:200,
+    width: 200,
+    height: 80,
     margin: wp(2),
   },
   imagePlaceholder: {
-    height: hp(20),
+    height: hp(100),
     justifyContent: "center",
     alignItems: "center",
     marginVertical: hp(1),
     borderWidth: 1,
     borderColor: "#ddd",
     textAlign: "center",
-    padding: wp(2),
+    padding: wp(1),
+  },
+  backButtonText: {
+    color: "#D7520AFF",
+    fontWeight: "bold",
   },
   saveButton: {
-    backgroundColor: "#4F75FF",
+    backgroundColor: "#D7520AFF",
     padding: wp(.5),
     alignItems: "center",
     borderRadius: 5,

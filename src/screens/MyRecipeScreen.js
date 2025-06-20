@@ -70,7 +70,7 @@ import {
         </TouchableOpacity>
   
         {loading ? (
-          <ActivityIndicator size="large" color="#f59e0b" />
+          <ActivityIndicator size="large" color="#D7520AFF" />
         ) : (
           <ScrollView contentContainerStyle={styles.scrollContainer}>
             {recipes.length === 0 ? (
@@ -86,6 +86,7 @@ import {
                         ? `${recipe.description.substring(0, 100)}...`
                         : recipe.description}
                     </Text>
+                    <Text style={styles.recipeTitle}>{recipe.ingredients}</Text>
                   </TouchableOpacity>
   
                   {/* Edit and Delete Buttons */}
@@ -127,15 +128,15 @@ import {
     },
     backButtonText: {
       fontSize: hp(2.2),
-      color: "#4F75FF",
+      color: "#D7520AFF",
     },
     addButton: {
-      backgroundColor: "#4F75FF",
+      backgroundColor: "#D7520AFF",
       padding: wp(.7),
       alignItems: "center",
       borderRadius: 5,
-      width:300,
-     marginLeft:500
+      width:200,
+      marginLeft:400
       // marginBottom: hp(2),
     },
     addButtonText: {
@@ -194,7 +195,7 @@ import {
       marginTop: hp(1),
     },
     editButton: {
-      backgroundColor: "#34D399",
+      backgroundColor: "#09A46BFF",
       padding: wp(.5),
       borderRadius: 5,
       width: 100, // Adjust width of buttons to be more compact
@@ -206,7 +207,7 @@ import {
       fontSize: hp(1.8),
     },
     deleteButton: {
-      backgroundColor: "#EF4444",
+      backgroundColor: "#A20101FF",
       padding: wp(.5),
       borderRadius: 5,
       width: 100, // Adjust width of buttons to be more compact
